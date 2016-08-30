@@ -23,8 +23,22 @@ namespace VDISolution
         [TestMethod]
         public void SymantecTest()
         {
-            Symantec version = new Symantec();
-            Assert.IsTrue(version.isSymantecActive());
+            Symantec scan = new Symantec();
+            Assert.IsTrue(scan.isSymantecActive());
+        }
+
+        [TestMethod]
+        public void SilverLightTest()
+        {
+            SilverLight registry = new SilverLight();
+            Assert.IsTrue(registry.isInstalled());
+        }
+
+        [TestMethod]
+        public void FlashPlayerTest()
+        {
+            FlashPlayer registry = new FlashPlayer();
+            Assert.IsTrue(registry.isInstalled());
         }
     }
 }

@@ -61,10 +61,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="FlashPlayer.cs" />
     <Compile Include="JAVA.cs" />
     <Compile Include="Office.cs" />
+    <Compile Include="SilverLight.cs" />
     <Compile Include="Symantec.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="VDI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WinZip.cs" />
   </ItemGroup>
