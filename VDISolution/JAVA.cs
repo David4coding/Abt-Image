@@ -27,7 +27,7 @@ namespace VDISolution
             {
                 proc.Start();
                 string line = proc.StandardError.ReadLine().Split(' ')[2].Replace("\"", "");
-                if (line.Equals("1.6.0_65"))
+                if (line.Equals("1.7.0_71"))  //1.6.0_65 for VDI
                 {
                     result = true;
                 }

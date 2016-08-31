@@ -10,7 +10,7 @@ namespace VDISolution
         public void WinZipTest()
         {
             WinZip zip = new WinZip();
-            Assert.IsTrue( zip.isAvailable());
+            Assert.IsTrue(zip.isAvailable());
         }
 
         [TestMethod]
@@ -40,5 +40,16 @@ namespace VDISolution
             FlashPlayer registry = new FlashPlayer();
             Assert.IsTrue(registry.isInstalled());
         }
+
+        [TestMethod]
+        public void LyncTest()
+        {
+
+            Lync lync = new Lync();
+            lync.init();
+            Assert.IsTrue(lync.isLoggedIn());
+        
+
+    }
     }
 }
