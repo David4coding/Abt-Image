@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace VDISolution
+namespace VDIDataModel
 {
-    class SilverLight
+   public static class SilverLight
     {
-       private bool result = false;
-        public bool isInstalled()
+       private static bool result = false;
+        public static bool isInstalled()
         {
             int registryValue = 0;
             RegistryKey localKey = null;
@@ -36,6 +36,7 @@ namespace VDISolution
             if(registryValue == 1)
             {
                 result = true;
+                Console.WriteLine("SilverLigh its installed and the pluging is activated for IE");
             }
 
 

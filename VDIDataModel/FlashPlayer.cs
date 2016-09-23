@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace VDISolution
+namespace VDIDataModel
 {
-    class FlashPlayer
+    public static class FlashPlayer
     {
-        private bool result = false;
-        string registryValue = "empty";
-        public bool isInstalled()
+        private static bool result = false;
+        static string registryValue = "empty";
+        public static bool isInstalled()
         {
             
             RegistryKey localKey = null;

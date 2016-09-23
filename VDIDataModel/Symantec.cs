@@ -4,11 +4,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
-namespace VDISolution
+namespace VDIDataModel
 {
-    class Symantec
+    public static class Symantec
     {
-        Process proc = new Process
+        static Process proc = new Process
         {   StartInfo = new ProcessStartInfo
         {
             FileName = @"C:\Program Files (x86)\Symantec\Symantec Endpoint Protection\DoScan.exe",
@@ -21,7 +21,7 @@ namespace VDISolution
 }
         ;
 
-        public bool isSymantecActive()
+        public static bool isSymantecActive()
         {
             bool result= false;
             try
@@ -35,7 +35,7 @@ namespace VDISolution
                     {
                         //  Console.WriteLine("complete output : " + output);
                         result = output.Contains("Active Scan Upon Startup");
-                        // Console.WriteLine("line : " + result);
+                        Console.WriteLine("Symantec Active Scan Upon Startup: " + result);
                        
                     }
                 }

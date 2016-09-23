@@ -1,19 +1,18 @@
 ﻿using Microsoft.Lync.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace VDISolution
+namespace VDIDataModel
 {
-    public class Lync
+    public static class Lync
     {
 
-        private  LyncClient lyncClient;
+        private static LyncClient lyncClient;
 
 
-        public void init()
+        public static void init()
         {
             try
             {
@@ -51,7 +50,7 @@ namespace VDISolution
 
         }
 
-        public bool isLoggedIn()
+        public static bool isLoggedIn()
         {
             try
             {
@@ -60,7 +59,7 @@ namespace VDISolution
                     //Sign out If the current client state is Signed In
 
                     return true;
-
+                    Console.WriteLine("User is Logged: " +lyncClient.Self );
                     //  lyncClient.BeginSignOut(SignOutCallback, null);
 
                 }
@@ -94,7 +93,7 @@ namespace VDISolution
             return false;
         }
 
-        private void SignInCallback(IAsyncResult result)
+        private static void SignInCallback(IAsyncResult result)
         {
             try
             {
@@ -119,7 +118,7 @@ namespace VDISolution
             }
         }
 
-        private  void SignOutCallback(IAsyncResult result)
+        private static void SignOutCallback(IAsyncResult result)
         {
             try
             {

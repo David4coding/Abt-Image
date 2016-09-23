@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;
 
-namespace VDISolution
+namespace VDIDataModel
 {
-    class JAVA
+    public static class JAVA
     {
-        Process proc = new Process
+        static Process proc = new Process
         {
             StartInfo = new ProcessStartInfo
             {
@@ -20,14 +20,15 @@ namespace VDISolution
             }
         };
 
-        public bool CheckVersion()
+        public static bool CheckVersion()
         {
             bool result = false;
             try
             {
                 proc.Start();
                 string line = proc.StandardError.ReadLine().Split(' ')[2].Replace("\"", "");
-                if (line.Equals("1.7.0_71"))  //1.6.0_65 for VDI
+                Console.WriteLine(line);
+                if (line.Equals("1.8.0_102"))  //1.6.0_65 for VDI, for server 1.8.0_102 visual studio : 1.7.0_71
                 {
                     result = true;
                 }
@@ -39,7 +40,7 @@ namespace VDISolution
           
             return result;
         }
-        public void readOutPutLines()
+        public static void readOutPutLines()
 
         {
 

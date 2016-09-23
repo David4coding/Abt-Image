@@ -1,55 +1,65 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VDIDataModel;
+using Xunit;
 
 namespace VDISolution
 {
-    [TestClass]
     public class VDI
-    {
-        [TestMethod]
+    {   [Fact]
         public void WinZipTest()
         {
-            WinZip zip = new WinZip();
-            Assert.IsTrue(zip.isAvailable());
+            Assert.True(WinZip.isAvailable());
         }
-
-        [TestMethod]
+        [Fact]
         public void JAVATest()
         {
-            JAVA version = new JAVA();
-            Assert.IsTrue(version.CheckVersion());
+            Assert.True(JAVA.CheckVersion());
         }
-
-        [TestMethod]
+        [Fact]
         public void SymantecTest()
         {
-            Symantec scan = new Symantec();
-            Assert.IsTrue(scan.isSymantecActive());
+            Assert.True(Symantec.isSymantecActive());
         }
-
-        [TestMethod]
+        [Fact]
         public void SilverLightTest()
         {
-            SilverLight registry = new SilverLight();
-            Assert.IsTrue(registry.isInstalled());
+            Assert.True(SilverLight.isInstalled());
         }
-
-        [TestMethod]
+        [Fact]
         public void FlashPlayerTest()
         {
-            FlashPlayer registry = new FlashPlayer();
-            Assert.IsTrue(registry.isInstalled());
+            Assert.True(FlashPlayer.isInstalled());
         }
-
-        [TestMethod]
+        [Fact]
         public void LyncTest()
         {
-
-            Lync lync = new Lync();
-            lync.init();
-            Assert.IsTrue(lync.isLoggedIn());
-        
-
-    }
+            Lync.init();
+            Assert.True(Lync.isLoggedIn());
+        }
+        [Fact]
+        public void WordTest()
+        {
+           Assert.True( Office.WordWrapper.CreateWord());
+        }
+        [Fact]
+        public void ExcelTest()
+        {
+            Assert.True(Office.ExcelWrapper.CreateExcel());
+        }
+        [Fact]
+        public void PowerPointTest()
+        {
+            Assert.True(Office.PowerPointWrapper.CreatePowerPoint());
+        }
+        [Fact]
+        public void AccessDataBaseTest()
+        {
+            Assert.True(Office.AccessWrapper.CreateAccess());
+        }
+        [Fact]
+        public void OutLookTest()
+        {
+            Assert.True(Office.OutlookWrapper.isLoggedIn());
+        }
     }
 }
