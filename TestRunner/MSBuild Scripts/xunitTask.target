@@ -6,12 +6,12 @@
 
 
   <UsingTask
-    AssemblyFile="C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\packages\xunit.1.9.2\lib\net20\xunit.runner.msbuild.dll"
+    AssemblyFile="C:\Program Files (x86)\Jenkins\workspace\VDI_TEST\packages\xunit.1.9.2\lib\net20\xunit.runner.msbuild.dll"
     TaskName="Xunit.Runner.MSBuild.xunit"/>
 
 
   <PropertyGroup>
-    <RootDirectory>C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution</RootDirectory>
+    <RootDirectory>C:\Program Files (x86)\Jenkins\workspace\VDI_TEST</RootDirectory>
     <ResultsDirectory>$(RootDirectory)\TestResults</ResultsDirectory>
 
   </PropertyGroup>
