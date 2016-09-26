@@ -1,6 +1,5 @@
 ﻿using Outlook = Microsoft.Office.Interop.Outlook;
 using System;
-using Microsoft.Office.Core;
 using System.DirectoryServices;
 using Access = Microsoft.Office.Interop.Access;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -8,6 +7,7 @@ using Word = Microsoft.Office.Interop.Word;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 using System.IO;
 using System.Reflection;
+using Microsoft.Office.Core;
 
 namespace VDIDataModel
 {
@@ -213,7 +213,7 @@ namespace VDIDataModel
                     PowerPoint.Application ppApp = new PowerPoint.Application();
   
                     PowerPoint.Presentations ppPresens = ppApp.Presentations;
-                    PowerPoint.Presentation objPres = ppPresens.Add(Microsoft.Office.Core.MsoTriState.msoTrue);
+                    PowerPoint.Presentation objPres = ppPresens.Add(MsoTriState.msoTrue);
                     PowerPoint.Slides objSlides = objPres.Slides;
                    
                     PowerPoint.Slide objSlide = objSlides.Add(1, PowerPoint.PpSlideLayout.ppLayoutTitleOnly);
