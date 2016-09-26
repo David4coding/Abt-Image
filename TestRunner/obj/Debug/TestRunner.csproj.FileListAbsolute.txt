@@ -1,0 +1,12 @@
+C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\AbtFramework-master\TestRunner\bin\Debug\TestRunner.exe.config
+C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\AbtFramework-master\TestRunner\bin\Debug\TestRunner.exe
+C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\AbtFramework-master\TestRunner\bin\Debug\TestRunner.pdb
+C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\AbtFramework-master\TestRunner\obj\Debug\TestRunner.csprojResolveAssemblyReference.cache
+C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\AbtFramework-master\TestRunner\obj\Debug\TestRunner.exe
+C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\AbtFramework-master\TestRunner\obj\Debug\TestRunner.pdb
+C:\Users\frometaguerraj\documents\visual studio 2015\Projects\VDISolution\TestRunner\bin\Debug\TestRunner.exe.config
+C:\Users\frometaguerraj\documents\visual studio 2015\Projects\VDISolution\TestRunner\bin\Debug\TestRunner.exe
+C:\Users\frometaguerraj\documents\visual studio 2015\Projects\VDISolution\TestRunner\bin\Debug\TestRunner.pdb
+C:\Users\frometaguerraj\documents\visual studio 2015\Projects\VDISolution\TestRunner\obj\Debug\TestRunner.csprojResolveAssemblyReference.cache
+C:\Users\frometaguerraj\documents\visual studio 2015\Projects\VDISolution\TestRunner\obj\Debug\TestRunner.exe
+C:\Users\frometaguerraj\documents\visual studio 2015\Projects\VDISolution\TestRunner\obj\Debug\TestRunner.pdb
