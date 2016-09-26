@@ -27,7 +27,7 @@ namespace TestRunner
             commands.Add(@"call msbuild.exe ""C:\Users\"+Environment.UserName + @"\Documents\Visual Studio 2015\Projects\VDISolution\TestRunner\MSBuild Scripts\xunitTask.target");
             commands.Add("cd " + @"C:\Users\"+ Environment.UserName + @"\Documents\Visual Studio 2015\Projects\VDISolution\XmlTransformer\bin\Debug\");
             commands.Add("call XmlTransformer.exe "+
-                @"""C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\TestResults\results.xml"" " +
+                @"""D:\Jenkins\Workspace\VDI_TEST\VDISolution\TestResults\results.xml"" " +
                 @"""C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\XmlTransformer\htmlTransform.xsl"" " +
                 @"""C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\TestResults""");
             executeCommand(commands);
