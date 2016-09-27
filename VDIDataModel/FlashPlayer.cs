@@ -26,8 +26,8 @@ namespace VDIDataModel
             try
             {
                 localKey = localKey.OpenSubKey(@"SOFTWARE\Wow6432Node\Macromedia\FlashPlayer\");
-                registryValue = localKey.GetValue("CurrentVersion").ToString();
-
+                registryValue = localKey.GetValue("Default").ToString();
+                Console.WriteLine(registryValue);
             }
             catch (NullReferenceException nre)
             {
