@@ -28,7 +28,7 @@ namespace VDIDataModel
                 proc.Start();
                 string line = proc.StandardError.ReadLine().Split(' ')[2].Replace("\"", "");
                 Console.WriteLine(line);
-                if (line.Equals("1.8.0_102"))  //1.6.0_65 for VDI, for server 1.8.0_102 visual studio : 1.7.0_71
+                if (line.Equals("1.8.0_101"))  //1.6.0_65 for VDI, for server 1.8.0_102 visual studio : 1.7.0_71
                 {
                     result = true;
                 }
