@@ -38,6 +38,10 @@ namespace VDIDataModel
                 result = true;
                 Console.WriteLine("SilverLigh its installed and the pluging is activated for IE");
             }
+            if (registryValue != 1)
+            {
+                Console.WriteLine("SilverLigh NOT activated for ie");
+            }
 
 
             return result;
