@@ -26,8 +26,8 @@ namespace VDIDataModel
             try
             {
                 localKey = localKey.OpenSubKey(@"SOFTWARE\Wow6432Node\Macromedia\FlashPlayer\");
-                registryValue = localKey.GetValue("Default").ToString();
-                Console.WriteLine(registryValue);
+                registryValue = localKey.GetValue("CurrentVersion").ToString();
+                //could be changed to Default
             }
             catch (NullReferenceException nre)
             {
@@ -36,8 +36,15 @@ namespace VDIDataModel
 
             if (registryValue.Equals("22,0,0,210") )
             {
+                Console.WriteLine("FlashPlayer version : CurrentVersion 22,0,0,210");
                 result = true;
             }
+            if (registryValue.Equals("value not set"))
+            {
+                Console.WriteLine("FlashPlayer is Available: Default");
+                result = true;
+            }
+
 
 
             return result;

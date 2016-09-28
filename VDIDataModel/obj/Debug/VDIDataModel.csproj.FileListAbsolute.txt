@@ -4,6 +4,5 @@ C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\VDIDat
 C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\VDIDataModel\bin\Debug\Microsoft.Lync.Model.dll
 C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\VDIDataModel\bin\Debug\Microsoft.Office.Uc.dll
 C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\VDIDataModel\bin\Debug\DotNetZip.xml
-C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\VDIDataModel\obj\Debug\VDIDataModel.csprojResolveAssemblyReference.cache
 C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\VDIDataModel\obj\Debug\VDIDataModel.dll
 C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\VDIDataModel\obj\Debug\VDIDataModel.pdb
