@@ -1,15 +1,12 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace VDIDataModel
 {
     public static class FlashPlayer
     {
         private static bool result = false;
-        static string registryValue = "empty";
+        static string[] registryValue;
         public static bool isInstalled()
         {
             
@@ -27,6 +24,7 @@ namespace VDIDataModel
             //{
             //    localKey = localKey.OpenSubKey(@"SOFTWARE\Wow6432Node\Macromedia\FlashPlayer\");
             //    registryValue = localKey.GetValue("CurrentVersion").ToString();
+            //    if(localKey != null) { }
             //    if (registryValue.Equals("22,0,0,210"))
             //    {
             //        Console.WriteLine("FlashPlayer version : CurrentVersion 22,0,0,210");
@@ -40,15 +38,20 @@ namespace VDIDataModel
 
             try
             {
-                localKey = localKey.OpenSubKey(@"SOFTWARE\Wow6432Node\Macromedia\FlashPlayer\");
-                registryValue = localKey.GetValue("Default").ToString();
-                //could be changed to Default
-                if (registryValue.Equals("value not set"))
+                if (localKey != null)
                 {
-                    Console.WriteLine("FlashPlayer is Available: Default");
-                    result = true;
+                    localKey = localKey.OpenSubKey(@"SOFTWARE\Wow6432Node\Macromedia\FlashPlayer\");
+                    registryValue = localKey.GetValueNames();
+                    //could be changed to Default
+                    if (registryValue != null)
+                    {
+                        foreach (var value in registryValue)
+                        {
+                            Console.WriteLine(value);
+                        }
+                        result = true;
+                    }
                 }
-
             }
             catch (NullReferenceException nre)
             {

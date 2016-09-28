@@ -1,9 +1,5 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace VDIDataModel
 {
    public static class SilverLight
@@ -11,17 +7,16 @@ namespace VDIDataModel
        private static bool result = false;
         public static bool isInstalled()
         {
-            var registryValue ="registry";
+            String[] registryValue ;
             RegistryKey localKey = null;
             if (Environment.Is64BitOperatingSystem)
             {
-                localKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
+                localKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64);
             }
             else
             {
                 localKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry32);
             }
-
             //try
             //{
 
@@ -32,7 +27,22 @@ namespace VDIDataModel
             //    {
             //        Console.WriteLine("SilverLigh its installed and the pluging is activated for IE");
             //        result = true;
-                   
+
+            //    }
+            //}
+            //catch (NullReferenceException nre)
+            //{
+            //    Console.WriteLine(nre.Message);
+            //}
+
+            //try
+            //{
+            //    localKey = localKey.OpenSubKey(@"\SOFTWARE\Wow6432Node\Microsoft\Silverlight");
+            //    registryValue = localKey.GetValue("Default").ToString();
+            //    if (registryValue.Equals("value not set"))
+            //    {
+            //        Console.WriteLine("SilverLight its installed but not Available for I.E.");
+            //        result = true;
             //    }
             //}
             //catch (NullReferenceException nre)
@@ -42,19 +52,24 @@ namespace VDIDataModel
 
             try
             {
-                localKey = localKey.OpenSubKey(@"\SOFTWARE\Wow6432Node\Microsoft\Silverlight");
-                registryValue = localKey.GetValue("Default").ToString();
-                if (registryValue.Equals("value not set"))
+                using (RegistryKey key = Registry.LocalMachine.OpenSubKey("Software\\Wow6432Node\\Microsoft\\Silverlight"))
                 {
-                    Console.WriteLine("SilverLight its installed but not Available for I.E.");
-                    result = true;
+                    if (key != null)
+                    {
+                        String o = key.GetValue("Version").ToString();
+                        Console.WriteLine(o);
+                        result = true;
+
+                    }
                 }
             }
-            catch (NullReferenceException nre)
+            catch (Exception ex)  //just for demonstration...it's always best to handle specific exceptions
             {
-                Console.WriteLine(nre.Message);
+                //react appropriately
+                Console.WriteLine(ex.Message);
             }
 
+   
 
             return result;
         }
