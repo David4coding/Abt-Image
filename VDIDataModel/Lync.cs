@@ -58,8 +58,8 @@ namespace VDIDataModel
                 {
                     //Sign out If the current client state is Signed In
 
+                    Console.WriteLine("User is Logged: " + lyncClient.Self);
                     return true;
-                    Console.WriteLine("User is Logged: " +lyncClient.Self );
                     //  lyncClient.BeginSignOut(SignOutCallback, null);
 
                 }

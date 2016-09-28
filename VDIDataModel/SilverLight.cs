@@ -11,36 +11,48 @@ namespace VDIDataModel
        private static bool result = false;
         public static bool isInstalled()
         {
-            int registryValue = 0;
+            var registryValue ="registry";
             RegistryKey localKey = null;
             if (Environment.Is64BitOperatingSystem)
             {
-                localKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64);
+                localKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
             }
             else
             {
                 localKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry32);
             }
 
+            //try
+            //{
+
+            //    localKey = localKey.OpenSubKey(@"Software\Microsoft\Silverlight\");
+            //    registryValue = (int)localKey.GetValue("AllowElevatedTrustAppsInBrowser");
+
+            //    if (registryValue == 1)
+            //    {
+            //        Console.WriteLine("SilverLigh its installed and the pluging is activated for IE");
+            //        result = true;
+                   
+            //    }
+            //}
+            //catch (NullReferenceException nre)
+            //{
+            //    Console.WriteLine(nre.Message);
+            //}
+
             try
             {
-
-                localKey = localKey.OpenSubKey(@"Software\Microsoft\Silverlight\");
-                registryValue = (int)localKey.GetValue("AllowElevatedTrustAppsInBrowser");
+                localKey = localKey.OpenSubKey(@"\SOFTWARE\Wow6432Node\Microsoft\Silverlight");
+                registryValue = localKey.GetValue("Default").ToString();
+                if (registryValue.Equals("value not set"))
+                {
+                    Console.WriteLine("SilverLight its installed but not Available for I.E.");
+                    result = true;
+                }
             }
             catch (NullReferenceException nre)
             {
                 Console.WriteLine(nre.Message);
-            }
-
-            if(registryValue == 1)
-            {
-                result = true;
-                Console.WriteLine("SilverLigh its installed and the pluging is activated for IE");
-            }
-            if (registryValue != 1)
-            {
-                Console.WriteLine("SilverLigh NOT activated for ie");
             }
 
 

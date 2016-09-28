@@ -16,7 +16,6 @@ namespace TestRunner
     {
         static void Main(string[] args)
         {
-            int x = 0;
             string Currentdir = Environment.CurrentDirectory;
             string MsbuildDir = Environment.GetEnvironmentVariable("windir")+@"\"+@"Microsoft.NET\Framework64\v4.0.30319";
                  

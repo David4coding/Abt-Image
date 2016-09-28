@@ -7,6 +7,6 @@ C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\AbtFramework-maste
 C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\TestRunner\bin\Debug\TestRunner.exe.config
 C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\TestRunner\bin\Debug\TestRunner.exe
 C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\TestRunner\bin\Debug\TestRunner.pdb
-C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\TestRunner\obj\Debug\TestRunner.csprojResolveAssemblyReference.cache
 C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\TestRunner\obj\Debug\TestRunner.exe
 C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\TestRunner\obj\Debug\TestRunner.pdb
+C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\TestRunner\obj\Debug\TestRunner.csprojResolveAssemblyReference.cache
