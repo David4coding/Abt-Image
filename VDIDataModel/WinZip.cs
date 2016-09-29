@@ -54,11 +54,12 @@ namespace VDIDataModel
             {
                 using (Ionic.Zip.ZipFile zip = new Ionic.Zip.ZipFile())
                 {
-                    // add this map file into the "images" directory in the zip archive
-                    zip.AddFile(path+"VDI.txt");
+                    
+                    zip.AddFile(path+fileName);
                     zip.Save(path+"VDIZip.zip");
                     result = CheckZip(path + "VDIZip.zip");
                     Console.WriteLine("Zip File Created Sucessfully: VDIZip.zip");
+                    Available.DeleteAllFilesInPath(path);
                 }
             }catch(Exception e)
             {
@@ -66,6 +67,12 @@ namespace VDIDataModel
             }
             return result;
         }
+
+
+        /// <summary>
+        /// searches for all the permited formats and delete those files.
+        /// </summary>
+       
         public static bool CheckZip(string zip)
         {
             if (File.Exists(zip))

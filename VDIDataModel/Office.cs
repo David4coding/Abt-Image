@@ -111,6 +111,7 @@ namespace VDIDataModel
                     {
                         result = true;
                         Console.WriteLine("Word file saved as: " + filename);
+                        Available.DeleteAllFilesInPath(path);
                     }
                 }
                 catch (Exception e)
@@ -188,7 +189,7 @@ namespace VDIDataModel
                     releaseObject(excelWorksheet);
                     releaseObject(excelWorkbook);
                     releaseObject(ExcelApp);
-
+                    Available.DeleteAllFilesInPath(path);
                 }
                 catch (Exception e)
                 {
@@ -240,7 +241,8 @@ namespace VDIDataModel
                     releaseObject(objPres);
                     releaseObject(ppPresens);
                     releaseObject(ppApp);
-                    
+
+                    Available.DeleteAllFilesInPath(path);
                 }
                 catch (Exception e)
                 {
@@ -277,6 +279,7 @@ namespace VDIDataModel
                 catch (Exception e)
                 {
                     Console.WriteLine("could not create access db: " + e.Message);
+                    Available.DeleteAllFilesInPath(path);
                 }
 
                 return result;
