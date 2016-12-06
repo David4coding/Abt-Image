@@ -5,39 +5,32 @@ namespace ImgDataModel
 {
     public static class FlashPlayer
     {
-        private static bool result = false;
-        static string[] registryValue;
-        public static bool isInstalled()
+        public static bool result = false;
+        public  static string[] registryValue;
+        public static RegistryKey localKey;
+        public static string key = "key";
+        public static void findRegistryKey()
         {
-            
-            RegistryKey localKey = null;
-            if (Environment.Is64BitOperatingSystem)
+            try
             {
-                localKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64);
+                RegistryKey localKey = null;
+                if (Environment.Is64BitOperatingSystem)
+                {
+                    localKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64);
+                }
+                else
+                {
+                    localKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry32);
+                }
             }
-            else
+            catch (Exception e)
             {
-                localKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry32);
+
+                Console.WriteLine("Could not find FlashPlayer Registry key "+e.Message);
             }
-
-            //try
-            //{
-            //    localKey = localKey.OpenSubKey(@"SOFTWARE\Wow6432Node\Macromedia\FlashPlayer\");
-            //    registryValue = localKey.GetValue("CurrentVersion").ToString();
-            //    if(localKey != null) { }
-            //    if (registryValue.Equals("22,0,0,210"))
-            //    {
-            //        Console.WriteLine("FlashPlayer version : CurrentVersion 22,0,0,210");
-            //        result = true;
-            //    }
-            //}
-            //catch (NullReferenceException nre)
-            //{
-            //    Console.WriteLine(nre.Message);
-            //}
-
-            string key ="key";
-
+        }
+        public static bool assertFlashPlayer()
+        {
             try
             {
                 if (localKey != null)
@@ -50,24 +43,29 @@ namespace ImgDataModel
                         foreach (var value in registryValue)
                         {
                             key = value.ToString();
-                            Console.WriteLine("Registry Key: "+value.ToString());
+                            Console.WriteLine("Registry Key: " + value.ToString());
                             string value1 = localKey.GetValue(key).ToString();
                             Console.WriteLine("Registry Value: " + value1);
                         }
                         result = true;
                     }
                 }
+                else
+                {
+                    Console.WriteLine("Registry Key not found : " + key.ToString());
+                }
             }
             catch (NullReferenceException nre)
             {
                 Console.WriteLine(nre.Message);
             }
-
-
-        
-
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
             return result;
         }
-    } }
+    }
+}
 

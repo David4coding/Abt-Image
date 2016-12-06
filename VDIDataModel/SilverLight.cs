@@ -5,10 +5,11 @@ namespace ImgDataModel
    public static class SilverLight
     {
        private static bool result = false;
-        public static bool isInstalled()
+        public static String[] registryValue;
+        public static RegistryKey localKey = null;
+        public static void findRegistry()
         {
-            String[] registryValue ;
-            RegistryKey localKey = null;
+           
             if (Environment.Is64BitOperatingSystem)
             {
                 localKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64);
@@ -17,39 +18,12 @@ namespace ImgDataModel
             {
                 localKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry32);
             }
-            //try
-            //{
+         
+           
+        }
 
-            //    localKey = localKey.OpenSubKey(@"Software\Microsoft\Silverlight\");
-            //    registryValue = (int)localKey.GetValue("AllowElevatedTrustAppsInBrowser");
-
-            //    if (registryValue == 1)
-            //    {
-            //        Console.WriteLine("SilverLigh its installed and the pluging is activated for IE");
-            //        result = true;
-
-            //    }
-            //}
-            //catch (NullReferenceException nre)
-            //{
-            //    Console.WriteLine(nre.Message);
-            //}
-
-            //try
-            //{
-            //    localKey = localKey.OpenSubKey(@"\SOFTWARE\Wow6432Node\Microsoft\Silverlight");
-            //    registryValue = localKey.GetValue("Default").ToString();
-            //    if (registryValue.Equals("value not set"))
-            //    {
-            //        Console.WriteLine("SilverLight its installed but not Available for I.E.");
-            //        result = true;
-            //    }
-            //}
-            //catch (NullReferenceException nre)
-            //{
-            //    Console.WriteLine(nre.Message);
-            //}
-
+        public static bool checkSilverLightVersion()
+        {
             try
             {
                 using (RegistryKey regkey = Registry.LocalMachine.OpenSubKey("Software\\Wow6432Node\\Microsoft\\Silverlight"))
@@ -62,22 +36,16 @@ namespace ImgDataModel
                         {
                             string key = value.ToString();
                             Console.WriteLine("Registry Key: " + value.ToString());
+                            result = true;
                             string value1 = localKey.GetValue(key).ToString();
                             Console.WriteLine("Registry Value: " + value1);
                         }
-                        result = true;
-                    }else
-                    {
-                        Console.WriteLine("Registry Value: not found");
+                       
                     }
-
-                    //if (key != null)
-                    //{
-                    //    String o = key.GetValue("Version").ToString();
-                    //    Console.WriteLine("SilverLight Version: " + o);
-                    //    result = true;
-
-                    //}
+                    else
+                    {
+                        Console.WriteLine("Registry Value not found, instead "+ registryValue.ToString());
+                    }
                 }
             }
             catch (Exception ex)  //just for demonstration...it's always best to handle specific exceptions
@@ -85,9 +53,6 @@ namespace ImgDataModel
                 //react appropriately
                 Console.WriteLine(ex.Message);
             }
-
-   
-
             return result;
         }
     }

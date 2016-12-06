@@ -9,14 +9,12 @@ namespace ImgDataModel
     class Available
     {
          public static HashSet<string> extensions = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase)
-        { ".doc", ".docx", ".xlsx", ".xls",".pdf",".txt", ".pptx",".ppt", ".jpg", ".accdb",".zip" };
+        { ".doc", ".docx", ".xlsx", ".xls",".pdf",".txt", ".pptx",".ppt", ".jpg", ".accdb",".zip",".accdb" };
         public static void DeleteAllFilesInPath(String path)
         {
 
             if (Directory.Exists(path))
             {
-                var watch = System.Diagnostics.Stopwatch.StartNew();
-
                 var files = new DirectoryInfo
                (path)
                .GetFiles()
@@ -34,10 +32,7 @@ namespace ImgDataModel
                     }
 
                 }
-                watch.Stop();
-
-                var elapsedMs = watch.ElapsedMilliseconds;
-                Console.WriteLine("Deleting all test files ", elapsedMs); // Succes
+                Console.WriteLine("Deleting all test files "); // Succes
             }
 
         }

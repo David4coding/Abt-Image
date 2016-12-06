@@ -95,8 +95,15 @@
     </Compile>
     <Compile Include="IMG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steps\AbtImg\AccessDBSteps.cs" />
     <Compile Include="Steps\AbtImg\ExcelSteps.cs" />
+    <Compile Include="Steps\AbtImg\FlashPlayerSteps.cs" />
+    <Compile Include="Steps\AbtImg\JAVASteps.cs" />
+    <Compile Include="Steps\AbtImg\OutlookSteps.cs" />
     <Compile Include="Steps\AbtImg\PowerPointSteps.cs" />
+    <Compile Include="Steps\AbtImg\SilverLightSteps.cs" />
+    <Compile Include="Steps\AbtImg\SkypeForBusinessSteps.cs" />
+    <Compile Include="Steps\AbtImg\SymantecSteps.cs" />
     <Compile Include="Steps\AbtImg\WinZipSteps.cs" />
     <Compile Include="Steps\AbtImg\WordSteps.cs" />
   </ItemGroup>

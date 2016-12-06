@@ -36,24 +36,27 @@ namespace ImgDataModel
         public static class OutlookWrapper
         {
             private static Outlook.Application outlook;
-
-            public static bool isLoggedIn()
+            public static string OutlookUser;
+            public static string WindowsUser;
+            public static DirectoryEntry de;
+            public static bool result = false;
+            public static void hasActiveDirectoryCredentials()
             {
                 outlook = new Microsoft.Office.Interop.Outlook.Application();
-                String OutlookUser = outlook.Application.Session.CurrentUser.Name;
-                DirectoryEntry de = new DirectoryEntry("WinNT://" + Environment.UserDomainName + "/" + Environment.UserName);
-                string WindowsUser = de.Properties["fullName"].Value.ToString();
+                OutlookUser = outlook.Application.Session.CurrentUser.Name;
+                de = new DirectoryEntry("WinNT://" + Environment.UserDomainName + "/" + Environment.UserName);
+                WindowsUser = de.Properties["fullName"].Value.ToString();
 
+            }
+            public static bool assertOutlook()
+            {
                 if (OutlookUser == WindowsUser)
                 {
-                    Console.WriteLine("Outlook User: "+ WindowsUser);
-                    return true;
+                    Console.WriteLine("Outlook User: " + WindowsUser);
+                    result = true;
                 }
-
-
-                return false;
+                return result;
             }
-
         }
         public static class WordWrapper
         {
@@ -92,7 +95,6 @@ namespace ImgDataModel
 
                 }
             }
-
             public static void addParagraph()
             {
                 try
@@ -109,7 +111,6 @@ namespace ImgDataModel
 
                 }
             }
-
             public static void saveFile()
             {
                 try
@@ -126,7 +127,6 @@ namespace ImgDataModel
 
                 }
             }
-
             public static bool assertWordDoc()
             {
                 try
@@ -149,7 +149,6 @@ namespace ImgDataModel
         public static class ExcelWrapper
         {
             public static Excel.Application ExcelApp = new Excel.Application();
-
             public static Excel.Workbook excelWorkbook = ExcelApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
             public static Excel.Worksheet excelWorksheet = (Excel.Worksheet)excelWorkbook.Worksheets[1];
 
@@ -248,8 +247,6 @@ namespace ImgDataModel
                 }
                 return result;
             }
-
-
         }
         public static class PowerPointWrapper
         {
@@ -351,33 +348,54 @@ namespace ImgDataModel
         }
         public static class AccessWrapper
         {
-            public static bool CreateAccess()
+            public static Access.Application AccessAPP = new Access.Application();
+            public static bool result = false;
+            public static string fileName = "VDI.accdb";
+            public static void CreateAccess()
             {
-                bool result = false;
-                var fileName = "VDI.accdb";
+               
                 try
                 {
-                    Access.Application AccessAPP = new Access.Application();
+                    //create access database
                     AccessAPP.NewCurrentDatabase(path+fileName,
                                          Access.AcNewDatabaseFormat.acNewDatabaseFormatAccess2007,
                                         Type.Missing);
+                    releaseObject(AccessAPP);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Could not create access db: " + e.Message);
+                }
+                             
+            }
+            public static bool assertAccessDB()
+            {
+                try
+                {
                     //asserts the file exists
                     if (File.Exists(path + "VDI.accdb"))
                     {
                         result = true;
                         Console.WriteLine("Access file saved as: " + fileName);
                     }
-
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine("Could not create access db: " + e.Message);
-                    Available.DeleteAllFilesInPath(path);
                 }
 
+                try
+                {
+                    Available.DeleteAllFilesInPath(path);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Could not delete the access db: " + e.Message);
+
+                }
                 return result;
-              
             }
+
         }
     }
 }
