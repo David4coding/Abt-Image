@@ -216,6 +216,12 @@ namespace ImgDataModel
                     excelWorkbook.SaveAs(path + fileName, Excel.XlFileFormat.xlWorkbookDefault, Type.Missing,
                     Type.Missing, true, false, Excel.XlSaveAsAccessMode.xlNoChange, Excel.XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
 
+                    excelWorkbook.Close();// change missValue to null
+                    ExcelApp.Quit();
+                    //relese from memory
+                    releaseObject(excelWorksheet);
+                    releaseObject(excelWorkbook);
+                    releaseObject(ExcelApp);
                 }
                 catch (Exception e)
                 {
@@ -233,13 +239,6 @@ namespace ImgDataModel
                         result = true;
                         Console.WriteLine("Excel file saved as: " + fileName);
                     }
-
-                    excelWorkbook.Close();// change missValue to null
-                    ExcelApp.Quit();
-                    //relese from memory
-                    releaseObject(excelWorksheet);
-                    releaseObject(excelWorkbook);
-                    releaseObject(ExcelApp);
                     Available.DeleteAllFilesInPath(path);
                 }
                 catch (Exception)
@@ -254,30 +253,83 @@ namespace ImgDataModel
         }
         public static class PowerPointWrapper
         {
+            public static PowerPoint.Application ppApp = new PowerPoint.Application();
+            public static PowerPoint.Presentations ppPresens ;
+            public static PowerPoint.Presentation objPres ;
+            public static PowerPoint.Slides objSlides ;
+            public static PowerPoint.Slide objSlide ;
+            public static PowerPoint.TextRange objTextRng;
+
+            public static bool result = false;
+            public static string fileName = "VDI.pptx";
+
             public static bool CreatePowerPoint()
             {
-                bool result = false;
-                var fileName = "VDI.pptx";
+             
+                try
+                {   //create powerpoint
+                    ppPresens = ppApp.Presentations;
+                    objPres = ppPresens.Add(MsoTriState.msoTrue);
+                    objSlides = objPres.Slides;
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Creating PowerPoint Failed: " + fileName + "\n" + e.Message);
+
+                }
+                return result;
+            }
+
+            public static void addText()
+            {
                 try
                 {
+                    //addind text to the slides
+                    objSlide = objSlides.Add(1, PowerPoint.PpSlideLayout.ppLayoutTitleOnly);
+                    objTextRng = objSlide.Shapes[1].TextFrame.TextRange;
 
-                    PowerPoint.Application ppApp = new PowerPoint.Application();
-  
-                    PowerPoint.Presentations ppPresens = ppApp.Presentations;
-                    PowerPoint.Presentation objPres = ppPresens.Add(MsoTriState.msoTrue);
-                    PowerPoint.Slides objSlides = objPres.Slides;
-                   
-                    PowerPoint.Slide objSlide = objSlides.Add(1, PowerPoint.PpSlideLayout.ppLayoutTitleOnly);
-                    PowerPoint.TextRange objTextRng = objSlide.Shapes[1].TextFrame.TextRange;
                     objTextRng.Text = "VDI POWER POINT TEST";
                     objTextRng.Font.Name = "Comic Sans MS";
                     objTextRng.Font.Size = 48;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Adding Text o the Slide Failed: " + fileName + "\n" + e.Message);
 
-                    objPres.SaveAs(path + fileName, PowerPoint.PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
+                }
+            }
 
-                    objPres.Close();
+            public static void savePowerPoint()
+            {
+                try
+                {
+                    //saving powerpoint
+                    objPres.SaveAs(path + fileName, PowerPoint.PpSaveAsFileType.ppSaveAsDefault,
+                        MsoTriState.msoTrue);
+                    
                     ppApp.Quit();
 
+                    //release memory
+                    releaseObject(objTextRng);
+                    releaseObject(objSlide);
+                    releaseObject(objSlides);
+                    releaseObject(objPres);
+                    releaseObject(ppPresens);
+                    releaseObject(ppApp);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Save PowerPoint Failed at this time: " + fileName + "\n" + e.Message);
+
+                }
+            }
+
+            public static bool assertPowerPoint()
+            {
+
+                try
+                {
                     //asserts the file exists
                     if (File.Exists(path + "VDI.pptx"))
                     {
@@ -285,18 +337,12 @@ namespace ImgDataModel
                         Console.WriteLine("PowerPoint file saved as: " + fileName);
                     }
 
-                    releaseObject(objTextRng);
-                    releaseObject(objSlide);
-                    releaseObject(objSlides);
-                    releaseObject(objPres);
-                    releaseObject(ppPresens);
-                    releaseObject(ppApp);
 
                     Available.DeleteAllFilesInPath(path);
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Creating PowerPoint Failed: " + fileName + "\n" + e.Message);
+                    Console.WriteLine("Assert PowerPoint Failed: " + fileName + "\n" + e.Message);
 
                 }
                 return result;

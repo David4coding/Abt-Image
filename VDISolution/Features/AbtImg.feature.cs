@@ -121,6 +121,26 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [TechTalk.SpecRun.ScenarioAttribute("Microsoft PowerPoint Test", new string[] {
+                "PowerPoint"}, SourceLine=24)]
+        public virtual void MicrosoftPowerPointTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Microsoft PowerPoint Test", new string[] {
+                        "PowerPoint"});
+#line 25
+this.ScenarioSetup(scenarioInfo);
+#line 26
+ testRunner.Given("i have created a new PowerPoint document", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 27
+ testRunner.And("added some text", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+ testRunner.When("i save the PowerPoint it", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 29
+ testRunner.Then("the PowerPoint document should be available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [TechTalk.SpecRun.TestRunCleanup()]
         public virtual void TestRunCleanup()
         {

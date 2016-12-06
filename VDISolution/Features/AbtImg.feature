@@ -20,3 +20,10 @@ Scenario: Microsoft Excel Test
 	And   added a few rows 
 	When  i save the Excel document
 	Then  the Excel document should be available
+
+@PowerPoint
+Scenario: Microsoft PowerPoint Test
+	Given i have created a new PowerPoint document
+	And   added some text
+	When  i save the PowerPoint it
+	Then  the PowerPoint document should be available
