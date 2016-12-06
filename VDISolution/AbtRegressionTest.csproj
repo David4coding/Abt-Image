@@ -95,6 +95,7 @@
     </Compile>
     <Compile Include="IMG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steps\AbtImg\ExcelSteps.cs" />
     <Compile Include="Steps\AbtImg\WinZipSteps.cs" />
     <Compile Include="Steps\AbtImg\WordSteps.cs" />
   </ItemGroup>

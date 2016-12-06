@@ -15,7 +15,7 @@ namespace AbtRegressiunTest
         {
             Assert.True(JAVA.CheckVersion());
         }
-        [Fact]
+      //  [Fact]
         public void SymantecTest()
         {
             Assert.True(Symantec.isSymantecActive());
@@ -44,7 +44,7 @@ namespace AbtRegressiunTest
      //   [Fact]
         public void ExcelTest()
         {
-            Assert.True(Office.ExcelWrapper.CreateExcel());
+       //     Assert.True(Office.ExcelWrapper.CreateExcel());
         }
       //  [Fact]
         public void PowerPointTest()

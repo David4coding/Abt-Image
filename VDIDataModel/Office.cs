@@ -148,13 +148,19 @@ namespace ImgDataModel
         }
         public static class ExcelWrapper
         {
-            public static bool CreateExcel()
-            {
-                object oMissing = System.Reflection.Missing.Value;
-                object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
-                bool result = false;
-                string fileName = @"VDI.xlsx";
+            public static Excel.Application ExcelApp = new Excel.Application();
 
+            public static Excel.Workbook excelWorkbook = ExcelApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
+            public static Excel.Worksheet excelWorksheet = (Excel.Worksheet)excelWorkbook.Worksheets[1];
+
+            private static object oMissing = System.Reflection.Missing.Value;
+            private static object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
+            public static bool result = false;
+            public static string fileName = @"VDI.xlsx";
+
+            public static void CreateExcel()
+            {
+               
 
                 if (!Directory.Exists(path))
                 {
@@ -163,42 +169,64 @@ namespace ImgDataModel
 
                 try
                 {
-                    Excel.Application ExcelApp = new Excel.Application();
-
                     if (ExcelApp == null)
                     {
                         Console.WriteLine("EXCEL could not be started. Check that your office installation and project references are correct.");
-                        return false;
+                        
                     }
                     ExcelApp.Visible = false;
-
-                    Excel.Workbook excelWorkbook = ExcelApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
-                    Excel.Worksheet excelWorksheet = (Excel.Worksheet)excelWorkbook.Worksheets[1];
 
                     if (excelWorksheet == null)
                     {
                         Console.WriteLine("Worksheet could not be created. Check that your office installation and project references are correct.");
                     }
+                    
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(" Opening Excel, \n Add new content to Excel, \n Saving Failed: " + fileName + "\n" + e.Message); // Success
 
-                    // Select the Excel cells, in the range c1 to c7 in the worksheet.
-                    Excel.Range aRange = excelWorksheet.get_Range("C1", "C7");
+                }
+            
+            }
 
-                    if (aRange == null)
-                    {
-                        Console.WriteLine("Could not get a range. Check to be sure you have the correct versions of the office DLLs.");
-                    }
+            public static void addRows()
+            {
+                // Select the Excel cells, in the range c1 to c7 in the worksheet.
+                Excel.Range aRange = excelWorksheet.get_Range("C1", "C7");
 
-                    // Fill the cells in the C1 to C7 range of the worksheet with the number 6.
-                    Object[] args = new Object[1];
-                    args[0] = 6;
-                    aRange.GetType().InvokeMember("Value", BindingFlags.SetProperty, null, aRange, args);
+                if (aRange == null)
+                {
+                    Console.WriteLine("Could not get a range. Check to be sure you have the correct versions of the office DLLs.");
+                }
 
-                    // Change the cells in the C1 to C7 range of the worksheet to the number 8.
-                    aRange.Value2 = 21;
+                // Fill the cells in the C1 to C7 range of the worksheet with the number 6.
+                Object[] args = new Object[1];
+                args[0] = 6;
+                aRange.GetType().InvokeMember("Value", BindingFlags.SetProperty, null, aRange, args);
 
+                // Change the cells in the C1 to C7 range of the worksheet to the number 8.
+                aRange.Value2 = 21;
+            }
+
+            public static void saveExcel()
+            {
+                try
+                {
                     excelWorkbook.SaveAs(path + fileName, Excel.XlFileFormat.xlWorkbookDefault, Type.Missing,
-                        Type.Missing, true, false, Excel.XlSaveAsAccessMode.xlNoChange, Excel.XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
+                    Type.Missing, true, false, Excel.XlSaveAsAccessMode.xlNoChange, Excel.XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
 
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Excel Word Doc could not be created at this time: " + e.Message);
+                }
+            }
+
+            public static bool assertExcel()
+            {
+                try
+                {
                     //asserts the file exists
                     if (File.Exists(path + "VDI.xlsx"))
                     {
@@ -208,18 +236,17 @@ namespace ImgDataModel
 
                     excelWorkbook.Close();// change missValue to null
                     ExcelApp.Quit();
-
+                    //relese from memory
                     releaseObject(excelWorksheet);
                     releaseObject(excelWorkbook);
                     releaseObject(ExcelApp);
                     Available.DeleteAllFilesInPath(path);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    Console.WriteLine(" Opening Excel, \n Add new content to Excel, \n Saving Failed: " + fileName + "\n" + e.Message); // Success
 
+                    throw;
                 }
-
                 return result;
             }
 

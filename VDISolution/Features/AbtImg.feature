@@ -13,3 +13,10 @@ Scenario: Microsoft Office Test
 	And   added a new paragraph
 	When  i save the Word document
 	Then  the Word document should be available
+
+@Excel
+Scenario: Microsoft Excel Test
+	Given i have created a new Excel document
+	And   added a few rows 
+	When  i save the Excel document
+	Then  the Excel document should be available
