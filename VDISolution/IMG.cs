@@ -1,16 +1,16 @@
 ﻿using System;
-using VDIDataModel;
+using ImgDataModel;
 using Xunit;
 
-namespace VDISolution
+namespace AbtRegressiunTest
 {
-    public class VDI
-    {   [Fact]
+    public class IMG
+    {   //[Fact]
         public void WinZipTest()
         {
-            Assert.True(WinZip.isAvailable());
+            Assert.True(WinZip.addToZip());
         }
-        [Fact]
+ //       [Fact]
         public void JAVATest()
         {
             Assert.True(JAVA.CheckVersion());
@@ -20,43 +20,43 @@ namespace VDISolution
         {
             Assert.True(Symantec.isSymantecActive());
         }
-        [Fact]
+  //      [Fact]
         public void SilverLightTest()
         {
             Assert.True(SilverLight.isInstalled());
         }
-        [Fact]
+    //    [Fact]
         public void FlashPlayerTest()
         {
-            Assert.True(FlashPlayer.isInstalled());
+            Assert.True(FlashPlayer.isInstalled() );
         }
-        [Fact]
+    //    [Fact]
         public void LyncTest()
         {
             Lync.init();
             Assert.True(Lync.isLoggedIn());
         }
-        [Fact]
+    //    [Fact]
         public void WordTest()
         {
-           Assert.True( Office.WordWrapper.CreateWord());
+         //  Assert.True( Office.WordWrapper.CreateWord());
         }
-        [Fact]
+     //   [Fact]
         public void ExcelTest()
         {
             Assert.True(Office.ExcelWrapper.CreateExcel());
         }
-        [Fact]
+      //  [Fact]
         public void PowerPointTest()
         {
             Assert.True(Office.PowerPointWrapper.CreatePowerPoint());
         }
-        [Fact]
+      //  [Fact]
         public void AccessDataBaseTest()
         {
             Assert.True(Office.AccessWrapper.CreateAccess());
         }
-        [Fact]
+       // [Fact]
         public void OutLookTest()
         {
             Assert.True(Office.OutlookWrapper.isLoggedIn());

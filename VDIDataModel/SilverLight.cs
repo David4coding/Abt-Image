@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
-namespace VDIDataModel
+namespace ImgDataModel
 {
    public static class SilverLight
     {
@@ -52,15 +52,32 @@ namespace VDIDataModel
 
             try
             {
-                using (RegistryKey key = Registry.LocalMachine.OpenSubKey("Software\\Wow6432Node\\Microsoft\\Silverlight"))
+                using (RegistryKey regkey = Registry.LocalMachine.OpenSubKey("Software\\Wow6432Node\\Microsoft\\Silverlight"))
                 {
-                    if (key != null)
+                    registryValue = regkey.GetValueNames();
+                    //could be changed to Default
+                    if (registryValue != null)
                     {
-                        String o = key.GetValue("Version").ToString();
-                        Console.WriteLine(o);
+                        foreach (var value in registryValue)
+                        {
+                            string key = value.ToString();
+                            Console.WriteLine("Registry Key: " + value.ToString());
+                            string value1 = localKey.GetValue(key).ToString();
+                            Console.WriteLine("Registry Value: " + value1);
+                        }
                         result = true;
-
+                    }else
+                    {
+                        Console.WriteLine("Registry Value: not found");
                     }
+
+                    //if (key != null)
+                    //{
+                    //    String o = key.GetValue("Version").ToString();
+                    //    Console.WriteLine("SilverLight Version: " + o);
+                    //    result = true;
+
+                    //}
                 }
             }
             catch (Exception ex)  //just for demonstration...it's always best to handle specific exceptions

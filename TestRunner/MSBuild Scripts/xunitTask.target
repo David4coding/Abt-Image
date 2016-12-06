@@ -6,12 +6,12 @@
 
 
   <UsingTask
-    AssemblyFile="D:\Jenkins\Workspace\VDI_TEST\packages\xunit.1.9.2\lib\net20\xunit.runner.msbuild.dll"
+    AssemblyFile="C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\packages\xunit.1.9.2\lib\net20\xunit.runner.msbuild.dll"
     TaskName="Xunit.Runner.MSBuild.xunit"/>
 
 
   <PropertyGroup>
-    <RootDirectory>D:\Jenkins\Workspace\VDI_TEST</RootDirectory>
+    <RootDirectory>C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects</RootDirectory>
     <ResultsDirectory>$(RootDirectory)\TestResults</ResultsDirectory>
 
   </PropertyGroup>
@@ -20,10 +20,7 @@
     <MakeDir
         Directories="$(RootDirectory)\TestResults" />
 
-    <xunit Assemblies="$(RootDirectory)\VDISolution\bin\Debug\VDISolution.dll" Xml="$(RootDirectory)\TestResults\results.xml" />
+    <xunit Assemblies="$(RootDirectory)\VDISolution\VDISolution\bin\Debug\VDISolution.dll" Xml="$(RootDirectory)\VDISolution\TestResults\results.xml" />
 
   </Target>
-
-
-
 </Project>

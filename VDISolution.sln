@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VDIDataModel", "VDIDataModel\VDIDataModel.csproj", "{B72E8134-2EB8-4C7D-83DE-F54E54FC1595}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImgDataModel", "VDIDataModel\ImgDataModel.csproj", "{B72E8134-2EB8-4C7D-83DE-F54E54FC1595}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VDISolution", "VDISolution\VDISolution.csproj", "{DAC0B937-579C-4366-9A41-364306167971}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbtRegressionTest", "VDISolution\AbtRegressionTest.csproj", "{DAC0B937-579C-4366-9A41-364306167971}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRunner", "TestRunner\TestRunner.csproj", "{B3A4D71D-9F23-4D1D-8BDE-3B1C20320EF1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlTransformer", "XmlTransformer\XmlTransformer.csproj", "{DC5DB4EB-9AA6-4084-BA04-F83AE352B85D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{B3A4D71D-9F23-4D1D-8BDE-3B1C20320EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3A4D71D-9F23-4D1D-8BDE-3B1C20320EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3A4D71D-9F23-4D1D-8BDE-3B1C20320EF1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DC5DB4EB-9AA6-4084-BA04-F83AE352B85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC5DB4EB-9AA6-4084-BA04-F83AE352B85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC5DB4EB-9AA6-4084-BA04-F83AE352B85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC5DB4EB-9AA6-4084-BA04-F83AE352B85D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

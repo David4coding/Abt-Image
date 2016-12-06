@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
-namespace VDIDataModel
+namespace ImgDataModel
 {
     public static class Symantec
     {

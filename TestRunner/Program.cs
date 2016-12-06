@@ -24,20 +24,14 @@ namespace TestRunner
             Console.WriteLine("MSBuild Directory:" + MsbuildDir);
             commands.Add("cd "+MsbuildDir);
             commands.Add(@"call msbuild.exe ""C:\Users\"+Environment.UserName + @"\Documents\Visual Studio 2015\Projects\VDISolution\TestRunner\MSBuild Scripts\xunitTask.target");
-            commands.Add("cd " + @"C:\Users\"+ Environment.UserName + @"\Documents\Visual Studio 2015\Projects\VDISolution\XmlTransformer\bin\Debug\");
-            commands.Add("call XmlTransformer.exe "+
-                @"""D:\Jenkins\Workspace\VDI_TEST\VDISolution\TestResults\results.xml"" " +
-                @"""C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\XmlTransformer\htmlTransform.xsl"" " +
-                @"""C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\VDISolution\TestResults""");
+           // commands.Add("cd " + @"C:\Users\"+ Environment.UserName + @"\Documents\Visual Studio 2015\Projects\VDISolution\XmlTransformer\bin\Debug\");
+            //commands.Add("call XmlTransformer.exe "+
+            //    @"""C:\Users\" + Environment.UserName + @"\Documents\Visual Studio 2015\Projects\VDISolution\TestResults\results.xml"" " +
+            //    @"""C:\Users\" + Environment.UserName + @"\Documents\Visual Studio 2015\Projects\VDISolution\XmlTransformer\htmlTransform.xsl"" " +
+            //    @"""C:\Users\" + Environment.UserName + @"\Documents\Visual Studio 2015\Projects\VDISolution\TestResults""");
             executeCommand(commands);
            Console.Read();             
-                                                          
-
-
         }
-
-       
-
         private static void executeCommand(List<String> commands)
         {
             Process p = new Process();
@@ -58,19 +52,8 @@ namespace TestRunner
                         sw.WriteLine(command);
                     
                     }
-                   
                 }
-
-
-            }
-     
-
-
-
-           
+            } 
         }
-
-        
-        
     }
 }

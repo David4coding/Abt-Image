@@ -1,7 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 
-namespace VDIDataModel
+namespace ImgDataModel
 {
     public static class FlashPlayer
     {
@@ -36,6 +36,8 @@ namespace VDIDataModel
             //    Console.WriteLine(nre.Message);
             //}
 
+            string key ="key";
+
             try
             {
                 if (localKey != null)
@@ -47,7 +49,10 @@ namespace VDIDataModel
                     {
                         foreach (var value in registryValue)
                         {
-                            Console.WriteLine(value);
+                            key = value.ToString();
+                            Console.WriteLine("Registry Key: "+value.ToString());
+                            string value1 = localKey.GetValue(key).ToString();
+                            Console.WriteLine("Registry Value: " + value1);
                         }
                         result = true;
                     }

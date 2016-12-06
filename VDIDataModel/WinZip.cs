@@ -4,16 +4,16 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace VDIDataModel
+namespace ImgDataModel
 {
    public static class WinZip
     {
         //path for the test to be written
-        private static string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+        public static string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
                                  + @"\VDI_FRAMEWORK_RUNNER\";
-        private static string fileName = "VDI.txt";
+        public static string fileName = "VDI.txt";
 
-        private static void WritteBinaryFile()
+        public static void WritteBinaryFile()
         {
            
 
@@ -45,21 +45,17 @@ namespace VDIDataModel
 
         }
 
-        public static bool isAvailable()
+        public static bool addToZip()
         {
-            WritteBinaryFile();
             bool result = false;
-
             try
             {
                 using (Ionic.Zip.ZipFile zip = new Ionic.Zip.ZipFile())
                 {
-                    
                     zip.AddFile(path+fileName);
                     zip.Save(path+"VDIZip.zip");
-                    result = CheckZip(path + "VDIZip.zip");
                     Console.WriteLine("Zip File Created Sucessfully: VDIZip.zip");
-                    Available.DeleteAllFilesInPath(path);
+                    
                 }
             }catch(Exception e)
             {
@@ -77,6 +73,7 @@ namespace VDIDataModel
         {
             if (File.Exists(zip))
             {
+                Available.DeleteAllFilesInPath(path);
                 return true;
             }
             else

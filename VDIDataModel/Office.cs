@@ -9,18 +9,13 @@ using System.IO;
 using System.Reflection;
 using Microsoft.Office.Core;
 
-namespace VDIDataModel
+namespace ImgDataModel
 {
     public static class Office
     {
         //path for the test to be written
         private static string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
                                  + @"\VDI_FRAMEWORK_RUNNER\";
-
-        /// <summary>
-        /// releases  the object from memory and calls the GC
-        /// </summary>
-        /// <param name="obj">Object to be released</param>
         public static void releaseObject(object obj)
         {
             try
@@ -66,14 +61,18 @@ namespace VDIDataModel
             /// creates a word file .docx
             /// </summary>
             /// <param name="fileName">template file for the Copy funct</param>
-            public static bool CreateWord()
+      
+            public static Word._Application oWord;
+            public static Word._Document oDoc;
+            public static Word.Paragraph oPara1;
+
+            private static object  oMissing = System.Reflection.Missing.Value;
+            private static object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
+            public static bool result = false;
+            public static string filename = @"VDI.docx";
+
+            public static void CreateWord()
             {
-                object oMissing = System.Reflection.Missing.Value;
-                object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
-                bool result = false;
-                string filename = @"VDI.docx";
-
-
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
@@ -81,31 +80,57 @@ namespace VDIDataModel
 
                 try
                 {
-
                     //Start Word and create a new document.
-                    Word._Application oWord;
-                    Word._Document oDoc;
                     oWord = new Word.Application();
                     oWord.Visible = false;
                     oDoc = oWord.Documents.Add(ref oMissing, ref oMissing,
                         ref oMissing, ref oMissing);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Word Doc could not be created at this time: " + e.Message);
 
+                }
+            }
+
+            public static void addParagraph()
+            {
+                try
+                {
                     //Insert a paragraph at the beginning of the document.
-                    Word.Paragraph oPara1;
                     oPara1 = oDoc.Content.Paragraphs.Add(ref oMissing);
                     oPara1.Range.Text = "VDI MICROSOFT TEST";
                     oPara1.Range.Font.Bold = 1;
                     oPara1.Format.SpaceAfter = 24;    //24 pt spacing after paragraph.
                     oPara1.Range.InsertParagraphAfter();
+                }catch (Exception e)
+                {
+                    Console.WriteLine("paragraph could not be added at this time: " + e.Message);
 
+                }
+            }
+
+            public static void saveFile()
+            {
+                try
+                {
                     oDoc.SaveAs(path + filename);
-
                     oDoc.Close();
                     oWord.Quit();
                     //realease from memory and call the GC
                     releaseObject(oDoc);
                     releaseObject(oWord);
+                }catch(Exception e)
+                {
+                    Console.WriteLine("Word Doc could not be created at this time: " + e.Message);
 
+                }
+            }
+
+            public static bool assertWordDoc()
+            {
+                try
+                {
                     //asserts the file exists
                     if (File.Exists(path + "VDI.docx"))
                     {
@@ -113,13 +138,11 @@ namespace VDIDataModel
                         Console.WriteLine("Word file saved as: " + filename);
                         Available.DeleteAllFilesInPath(path);
                     }
-                }
-                catch (Exception e)
+                  
+                }catch(Exception e)
                 {
                     Console.WriteLine("Word Doc could not be created at this time: " + e.Message);
-
                 }
-
                 return result;
             }
         }
@@ -262,9 +285,6 @@ namespace VDIDataModel
                 try
                 {
                     Access.Application AccessAPP = new Access.Application();
-                    //AccessAPP.NewCurrentDatabase(database,
-                    //                       Access.AcNewDatabaseFormat.acNewDatabaseFormatUserDefault,
-                    //                      Type.Missing);
                     AccessAPP.NewCurrentDatabase(path+fileName,
                                          Access.AcNewDatabaseFormat.acNewDatabaseFormatAccess2007,
                                         Type.Missing);
@@ -272,13 +292,13 @@ namespace VDIDataModel
                     if (File.Exists(path + "VDI.accdb"))
                     {
                         result = true;
-                        Console.WriteLine("access file saved as: " + fileName);
+                        Console.WriteLine("Access file saved as: " + fileName);
                     }
 
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("could not create access db: " + e.Message);
+                    Console.WriteLine("Could not create access db: " + e.Message);
                     Available.DeleteAllFilesInPath(path);
                 }
 

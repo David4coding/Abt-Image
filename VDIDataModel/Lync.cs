@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace VDIDataModel
+namespace ImgDataModel
 {
     public static class Lync
     {
