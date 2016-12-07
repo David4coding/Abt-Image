@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImgDataModel", "VDIDataModel\ImgDataModel.csproj", "{B72E8134-2EB8-4C7D-83DE-F54E54FC1595}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbtRegressionTest", "VDISolution\AbtRegressionTest.csproj", "{DAC0B937-579C-4366-9A41-364306167971}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbtRegressionTest", "AbtRegressionTest\AbtRegressionTest.csproj", "{DAC0B937-579C-4366-9A41-364306167971}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRunner", "TestRunner\TestRunner.csproj", "{B3A4D71D-9F23-4D1D-8BDE-3B1C20320EF1}"
 EndProject
