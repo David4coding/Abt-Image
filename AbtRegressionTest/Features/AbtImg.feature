@@ -62,3 +62,6 @@ Scenario: SilverLight Test
 Scenario: Symantec Active Scan Test
 	Given Symantec active scan is running
 
+@SCCM
+Scenario: SCCM Test
+	Given im using an abt laptop SCCM should be available and running at start up

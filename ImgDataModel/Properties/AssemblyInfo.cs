@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("VDIDataModel")]
+[assembly: AssemblyTitle("ImgDataModel")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Abt Associates, Inc.")]
-[assembly: AssemblyProduct("VDIDataModel")]
+[assembly: AssemblyProduct("ImgDataModel")]
 [assembly: AssemblyCopyright("Copyright © Abt Associates, Inc. 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

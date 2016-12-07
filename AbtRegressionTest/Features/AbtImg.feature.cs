@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace AbtImg.Features
+namespace AbtRegressionTest.Features
 {
     using TechTalk.SpecFlow;
     
@@ -247,6 +247,20 @@ this.ScenarioSetup(scenarioInfo);
 this.ScenarioSetup(scenarioInfo);
 #line 63
  testRunner.Given("Symantec active scan is running", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("SCCM Test", new string[] {
+                "SCCM"}, SourceLine=65)]
+        public virtual void SCCMTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("SCCM Test", new string[] {
+                        "SCCM"});
+#line 66
+this.ScenarioSetup(scenarioInfo);
+#line 67
+ testRunner.Given("im using an abt laptop SCCM should be available and running at start up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             this.ScenarioCleanup();
         }
