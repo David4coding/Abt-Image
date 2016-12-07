@@ -3,7 +3,7 @@ using TechTalk.SpecFlow;
 using ImgDataModel;
 using Xunit;
 
-namespace VDISolution.Steps.AbtImg
+namespace AbtImg.Steps.AbtImg
 {
     [Binding]
     public class SymantecSteps

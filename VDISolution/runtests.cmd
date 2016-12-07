@@ -1,6 +1,6 @@
 @pushd %~dp0
 
-%windir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe "VDISolution.csproj"
+%windir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe "AbtImg.csproj"
 
 @if ERRORLEVEL 1 goto end
 

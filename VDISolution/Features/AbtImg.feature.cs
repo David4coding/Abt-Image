@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace VDISolution.Features
+namespace AbtImg.Features
 {
     using TechTalk.SpecFlow;
     
