@@ -13,5 +13,19 @@ namespace AbtImg.Steps.AbtImg
         {
             Assert.True(Symantec.isSymantecActive());
         }
+
+        [Given(@"im using an Abt Computer Encryption Desktop should be available and running at start up")]
+        public void GivenImUsingAnAbtComputerEncryptionDesktopShouldBeAvailableAndRunningAtStartUp()
+        {
+            Assert.True(Symantec.findEncriptionRegistry());
+        }
+
+        [Given(@"im using an Abt Computer Encryption Desktop process running at start up")]
+        public void GivenImUsingAnAbtComputerEncryptionDesktopProcessRunningAtStartUp()
+        {
+            Assert.True(Symantec.isEncriptionRunning());
+        }
+
+
     }
 }

@@ -54,7 +54,7 @@ namespace ImgDataModel
                 {
                     zip.AddFile(path+fileName);
                     zip.Save(path+"VDIZip.zip");
-                    Console.WriteLine("Zip File Created Sucessfully: VDIZip.zip");
+                    Console.WriteLine("Zip File Created Sucessfully:");
                     
                 }
             }catch(Exception e)

@@ -100,6 +100,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Available.cs" />
+    <Compile Include="Bit9.cs" />
+    <Compile Include="CarbonBlack.cs" />
     <Compile Include="FlashPlayer.cs" />
     <Compile Include="JAVA.cs" />
     <Compile Include="Lync.cs" />

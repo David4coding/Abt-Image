@@ -26,7 +26,7 @@ namespace ImgDataModel
             catch (Exception ex)
             {
                 obj = null;
-                Console.WriteLine("Exception Occured while releasing object " + ex.ToString());
+                Console.WriteLine("Exception Occured while releasing object ");
             }
             finally
             {
@@ -91,7 +91,7 @@ namespace ImgDataModel
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Word Doc could not be created at this time: " + e.Message);
+                    Console.WriteLine("Word Doc could not be created at this time ");
 
                 }
             }
@@ -107,7 +107,7 @@ namespace ImgDataModel
                     oPara1.Range.InsertParagraphAfter();
                 }catch (Exception e)
                 {
-                    Console.WriteLine("paragraph could not be added at this time: " + e.Message);
+                    Console.WriteLine("The paragraph could not be added at this time ");
 
                 }
             }
@@ -123,7 +123,7 @@ namespace ImgDataModel
                     releaseObject(oWord);
                 }catch(Exception e)
                 {
-                    Console.WriteLine("Word Doc could not be created at this time: " + e.Message);
+                    Console.WriteLine("Error saving the Word Doc: " + filename);
 
                 }
             }
@@ -141,7 +141,7 @@ namespace ImgDataModel
                   
                 }catch(Exception e)
                 {
-                    Console.WriteLine("Word Doc could not be created at this time: " + e.Message);
+                    Console.WriteLine("file " + filename+ " not found");
                 }
                 return result;
             }
@@ -224,7 +224,7 @@ namespace ImgDataModel
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Excel Word Doc could not be created at this time: " + e.Message);
+                    Console.WriteLine("Error saving the Excel file: "+fileName);
                 }
             }
 
@@ -240,10 +240,9 @@ namespace ImgDataModel
                     }
                     Available.DeleteAllFilesInPath(path);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-
-                    throw;
+                    Console.WriteLine("Excel file " + fileName + " not found");
                 }
                 return result;
             }
@@ -292,7 +291,7 @@ namespace ImgDataModel
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Adding Text o the Slide Failed: " + fileName + "\n" + e.Message);
+                    Console.WriteLine("Adding Text to " + fileName +" failed");
 
                 }
             }
@@ -317,7 +316,7 @@ namespace ImgDataModel
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Save PowerPoint Failed at this time: " + fileName + "\n" + e.Message);
+                    Console.WriteLine("Error saving " + fileName );
 
                 }
             }
@@ -364,7 +363,7 @@ namespace ImgDataModel
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Could not create access db: " + e.Message);
+                    Console.WriteLine("Could not create: "+fileName);
                 }
                              
             }
@@ -381,7 +380,7 @@ namespace ImgDataModel
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Could not create access db: " + e.Message);
+                    Console.WriteLine("Error " + e.Message);
                 }
 
                 try
@@ -390,7 +389,7 @@ namespace ImgDataModel
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Could not delete the access db: " + e.Message);
+                    Console.WriteLine("Error " + e.Message);
 
                 }
                 return result;

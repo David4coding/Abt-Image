@@ -251,16 +251,70 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [TechTalk.SpecRun.ScenarioAttribute("Symantec Encryption Desktop Test", SourceLine=64)]
+        public virtual void SymantecEncryptionDesktopTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Symantec Encryption Desktop Test", ((string[])(null)));
+#line 65
+this.ScenarioSetup(scenarioInfo);
+#line 66
+ testRunner.Given("im using an Abt Computer Encryption Desktop should be available and running at st" +
+                    "art up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Symantec Encryption Desktop Service Test", SourceLine=67)]
+        public virtual void SymantecEncryptionDesktopServiceTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Symantec Encryption Desktop Service Test", ((string[])(null)));
+#line 68
+this.ScenarioSetup(scenarioInfo);
+#line 69
+ testRunner.Given("im using an Abt Computer Encryption Desktop process running at start up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [TechTalk.SpecRun.ScenarioAttribute("SCCM Test", new string[] {
-                "SCCM"}, SourceLine=65)]
+                "SCCM"}, SourceLine=71)]
         public virtual void SCCMTest()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("SCCM Test", new string[] {
                         "SCCM"});
-#line 66
+#line 72
 this.ScenarioSetup(scenarioInfo);
-#line 67
+#line 73
  testRunner.Given("im using an abt laptop SCCM should be available and running at start up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Bit9 Test", new string[] {
+                "Bit9"}, SourceLine=75)]
+        public virtual void Bit9Test()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bit9 Test", new string[] {
+                        "Bit9"});
+#line 76
+this.ScenarioSetup(scenarioInfo);
+#line 77
+ testRunner.Given("im using an Abt Computer Bit should be available and running at start up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Carbon Black Test", new string[] {
+                "CarbonBlack"}, SourceLine=79)]
+        public virtual void CarbonBlackTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Carbon Black Test", new string[] {
+                        "CarbonBlack"});
+#line 80
+this.ScenarioSetup(scenarioInfo);
+#line 81
+ testRunner.Given("im using an Abt Computer Carbon Black should be available and running at start up" +
+                    "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             this.ScenarioCleanup();
         }

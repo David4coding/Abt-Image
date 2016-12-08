@@ -62,6 +62,20 @@ Scenario: SilverLight Test
 Scenario: Symantec Active Scan Test
 	Given Symantec active scan is running
 
+Scenario: Symantec Encryption Desktop Test
+	Given  im using an Abt Computer Encryption Desktop should be available and running at start up 
+
+Scenario: Symantec Encryption Desktop Service Test
+	Given  im using an Abt Computer Encryption Desktop process running at start up 
+
 @SCCM
 Scenario: SCCM Test
 	Given im using an abt laptop SCCM should be available and running at start up
+
+@Bit9
+Scenario: Bit9 Test
+	Given im using an Abt Computer Bit should be available and running at start up
+
+@CarbonBlack
+Scenario: Carbon Black Test
+	Given im using an Abt Computer Carbon Black should be available and running at start up

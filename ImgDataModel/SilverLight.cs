@@ -37,8 +37,13 @@ namespace ImgDataModel
                             string key = value.ToString();
                             Console.WriteLine("Registry Key: " + value.ToString());
                             result = true;
-                            string value1 = localKey.GetValue(key).ToString();
-                            Console.WriteLine("Registry Value: " + value1);
+                            string[] value1 = localKey.GetValueNames();
+                            //print values
+                            foreach (var item in value1)
+                            {
+                                Console.WriteLine("Registry Value: " + item);
+                            }
+                           
                         }
                        
                     }
@@ -51,7 +56,7 @@ namespace ImgDataModel
             catch (Exception ex)  //just for demonstration...it's always best to handle specific exceptions
             {
                 //react appropriately
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Couldnt find the Silverlight registry");
             }
             return result;
         }
