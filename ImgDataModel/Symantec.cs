@@ -52,7 +52,7 @@ namespace ImgDataModel
             return result;
         }
 
-        public static bool isEncriptionRunning()
+        public static bool isEncriptionServiceRunning()
         {
             bool result = false;
 
@@ -61,10 +61,10 @@ namespace ImgDataModel
                 ServiceController[] services = ServiceController.GetServices();
                 foreach (ServiceController service in services)
                 {
-                    if (service.ServiceName.Equals("pgptray"))
+                    if (service.ServiceName.Equals("PGPtray"))
                     {
                         result = true;
-                        Console.WriteLine("pgptray Service " + service.ServiceName + " is " + service.Status);
+                        Console.WriteLine("PGPtray Service " + service.ServiceName + " is " + service.Status);
                     }
                 }
             }
@@ -74,6 +74,21 @@ namespace ImgDataModel
             }
 
             return result;
+        }
+
+        public static bool isEncriptionProcessRunning()
+        {
+            Process[] processlist = Process.GetProcesses();
+            foreach (Process theprocess in processlist)
+            {
+                if (theprocess.ProcessName.Equals("PGPtray"))
+                {
+
+                    Console.WriteLine("Process: {0} ID: {1}", theprocess.ProcessName, theprocess.Id);
+                    return true;
+                }
+            }
+            return false;
         }
 
         public static bool findEncriptionRegistry()

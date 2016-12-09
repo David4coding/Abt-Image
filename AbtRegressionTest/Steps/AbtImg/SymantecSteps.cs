@@ -23,7 +23,7 @@ namespace AbtImg.Steps.AbtImg
         [Given(@"im using an Abt Computer Encryption Desktop process running at start up")]
         public void GivenImUsingAnAbtComputerEncryptionDesktopProcessRunningAtStartUp()
         {
-            Assert.True(Symantec.isEncriptionRunning());
+            Assert.True(Symantec.isEncriptionProcessRunning());
         }
 
 
