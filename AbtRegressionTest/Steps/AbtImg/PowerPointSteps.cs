@@ -3,7 +3,7 @@ using TechTalk.SpecFlow;
 using ImgDataModel;
 using Xunit;
 
-namespace AbtImg.Steps.AbtImg
+namespace AbtRegressionTest.Steps.AbtImg
 {
     [Binding]
     public class PowerPointSteps

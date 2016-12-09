@@ -70,7 +70,7 @@ Scenario: Symantec Encryption Desktop Service Test
 
 @SCCM
 Scenario: SCCM Test
-	Given im using an abt laptop SCCM should be available and running at start up
+	Given SCCM is available at start up
 
 @Bit9
 Scenario: Bit9 Test

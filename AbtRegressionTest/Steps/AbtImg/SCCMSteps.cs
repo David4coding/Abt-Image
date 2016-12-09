@@ -4,16 +4,17 @@ using ImgDataModel;
 using Xunit;
 
 
-namespace AbtImg.Steps.AbtImg
+namespace AbtRegressionTest.Steps.AbtImg
 {
     [Binding]
-    public class AbtImgSteps
+    public class SCCMSteps
     {
-        [Given(@"im using an abt laptop SCCM should be available and running at start up")]
-        public void GivenImUsingAnAbtLaptopSCCMShouldBeAvailableAndRunningAtStartUp()
+        [Given(@"SCCM is available at start up")]
+        public void GivenSCCMIsAvailableAtStartUp()
         {
             Assert.True(SCCM.isAgentAvailable());
         }
+
     }
 }
 

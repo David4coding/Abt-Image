@@ -16,19 +16,12 @@ namespace TestRunner
     {
         static void Main(string[] args)
         {
-            string Currentdir = Environment.CurrentDirectory;
-            string MsbuildDir = Environment.GetEnvironmentVariable("windir")+@"\"+@"Microsoft.NET\Framework64\v4.0.30319";
-                 
+            string Currentdir = @"""C:\Users\" + Environment.UserName + @"\Documents\Visual Studio 2015\Projects\AbtImg\AbtRegressionTest";
+   
             List<String> commands = new List<string>();
-              Console.WriteLine("Current Directory: " + Currentdir);
-            Console.WriteLine("MSBuild Directory:" + MsbuildDir);
-            commands.Add("cd "+MsbuildDir);
-            commands.Add(@"call msbuild.exe ""C:\Users\"+Environment.UserName + @"\Documents\Visual Studio 2015\Projects\VDISolution\TestRunner\MSBuild Scripts\xunitTask.target");
-           // commands.Add("cd " + @"C:\Users\"+ Environment.UserName + @"\Documents\Visual Studio 2015\Projects\VDISolution\XmlTransformer\bin\Debug\");
-            //commands.Add("call XmlTransformer.exe "+
-            //    @"""C:\Users\" + Environment.UserName + @"\Documents\Visual Studio 2015\Projects\VDISolution\TestResults\results.xml"" " +
-            //    @"""C:\Users\" + Environment.UserName + @"\Documents\Visual Studio 2015\Projects\VDISolution\XmlTransformer\htmlTransform.xsl"" " +
-            //    @"""C:\Users\" + Environment.UserName + @"\Documents\Visual Studio 2015\Projects\VDISolution\TestResults""");
+            commands.Add("cd "+ Currentdir);
+            Console.WriteLine("Current Directory: " + Currentdir);
+            commands.Add(@"call runtests.cmd ");
             executeCommand(commands);
            Console.Read();             
         }
