@@ -11,7 +11,7 @@ namespace AbtRegressionTest.Steps.AbtImg
         [Given(@"im using an Abt Computer Carbon Black should be available and running at start up")]
         public void GivenImUsingAnAbtComputerCarbonBlackShouldBeAvailableAndRunningAtStartUp()
         {
-            Assert.True(CarbonBlack.isCbRunning());
+            Assert.True(CarbonBlack.isCarbonBlackProcessRunning());
         }
     }
 }

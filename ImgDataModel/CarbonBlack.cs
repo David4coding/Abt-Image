@@ -3,6 +3,7 @@ using System.ServiceProcess;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
 
 namespace ImgDataModel
 {
@@ -34,6 +35,21 @@ namespace ImgDataModel
             }
 
             return result;
+        }
+
+        public static bool isCarbonBlackProcessRunning()
+        {
+            Process[] processlist = Process.GetProcesses();
+            foreach (Process theprocess in processlist)
+            {
+                if (theprocess.ProcessName.Equals("cb"))
+                {
+
+                    Console.WriteLine("Process: {0} ID: {1}", theprocess.ProcessName, theprocess.Id);
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
