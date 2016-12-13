@@ -28,11 +28,6 @@ Scenario: Microsoft PowerPoint Test
 	When  i save the PowerPoint it
 	Then  the PowerPoint document should be available
 
-@AccessDB
-Scenario: Microsoft Access DB Test
-	Given i have created a new Access DB
-	Then  the Access DB should be available
-
 @Outlook
 Scenario: Microsoft Outlook Test
 	Given   i opened Outlook
