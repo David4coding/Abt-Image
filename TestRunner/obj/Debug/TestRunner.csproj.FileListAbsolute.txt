@@ -20,3 +20,4 @@ C:\Users\acunad\Source\Repos\Abt-Image\TestRunner\bin\Debug\TestRunner.exe
 C:\Users\acunad\Source\Repos\Abt-Image\TestRunner\bin\Debug\TestRunner.pdb
 C:\Users\acunad\Source\Repos\Abt-Image\TestRunner\obj\Debug\TestRunner.exe
 C:\Users\acunad\Source\Repos\Abt-Image\TestRunner\obj\Debug\TestRunner.pdb
+C:\Users\acunad\Source\Repos\Abt-Image\TestRunner\obj\Debug\TestRunner.csprojResolveAssemblyReference.cache
