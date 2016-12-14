@@ -5,7 +5,7 @@ using System.DirectoryServices;
 using Microsoft.Office.Interop.Access;
 using System.IO;
 using System.Reflection;
-
+using Microsoft.Office.Core;
 
 namespace ImgDataModel
 {
