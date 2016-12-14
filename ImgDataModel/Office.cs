@@ -299,8 +299,7 @@ namespace ImgDataModel
                 try
                 {
                     //saving powerpoint
-                    objPres.SaveAs(path + fileName, Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault
-                        );
+                    objPres.SaveAs(path + fileName, Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault);
                     
                     ppApp.Quit();
 
