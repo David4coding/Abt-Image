@@ -1,10 +1,9 @@
-﻿using Outlook = Microsoft.Office.Interop.Outlook;
+﻿
+using Microsoft.Office.Interop.Word;
 using System;
 using System.DirectoryServices;
-using Access = Microsoft.Office.Interop.Access;
-using Excel = Microsoft.Office.Interop.Excel;
-using Word = Microsoft.Office.Interop.Word;
-using PowerPoint = Microsoft.Office.Interop.PowerPoint;
+
+using Microsoft.Office.Interop.Access;
 using System.IO;
 using System.Reflection;
 using Microsoft.Office.Core;
@@ -35,7 +34,7 @@ namespace ImgDataModel
         }
         public static class OutlookWrapper
         {
-            private static Outlook.Application outlook;
+            private static Microsoft.Office.Interop.Outlook.Application outlook;
             public static string OutlookUser;
             public static string WindowsUser;
             public static DirectoryEntry de;
@@ -65,9 +64,9 @@ namespace ImgDataModel
             /// </summary>
             /// <param name="fileName">template file for the Copy funct</param>
       
-            public static Word._Application oWord;
-            public static Word._Document oDoc;
-            public static Word.Paragraph oPara1;
+            public static Microsoft.Office.Interop.Word.Application oWord;
+            public static _Document oDoc;
+            public static Paragraph oPara1;
 
             private static object  oMissing = System.Reflection.Missing.Value;
             private static object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
@@ -84,7 +83,7 @@ namespace ImgDataModel
                 try
                 {
                     //Start Word and create a new document.
-                    oWord = new Word.Application();
+                    oWord = new Microsoft.Office.Interop.Word.Application();
                     oWord.Visible = false;
                     oDoc = oWord.Documents.Add(ref oMissing, ref oMissing,
                         ref oMissing, ref oMissing);
@@ -148,9 +147,9 @@ namespace ImgDataModel
         }
         public static class ExcelWrapper
         {
-            public static Excel.Application ExcelApp = new Excel.Application();
-            public static Excel.Workbook excelWorkbook = ExcelApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
-            public static Excel.Worksheet excelWorksheet = (Excel.Worksheet)excelWorkbook.Worksheets[1];
+            public static Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+            public static Microsoft.Office.Interop.Excel.Workbook excelWorkbook = ExcelApp.Workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
+            public static Microsoft.Office.Interop.Excel.Worksheet excelWorksheet = (Microsoft.Office.Interop.Excel.Worksheet)excelWorkbook.Worksheets[1];
 
             private static object oMissing = System.Reflection.Missing.Value;
             private static object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
@@ -192,7 +191,7 @@ namespace ImgDataModel
             public static void addRows()
             {
                 // Select the Excel cells, in the range c1 to c7 in the worksheet.
-                Excel.Range aRange = excelWorksheet.get_Range("C1", "C7");
+                Microsoft.Office.Interop.Excel.Range aRange = excelWorksheet.get_Range("C1", "C7");
 
                 if (aRange == null)
                 {
@@ -212,8 +211,8 @@ namespace ImgDataModel
             {
                 try
                 {
-                    excelWorkbook.SaveAs(path + fileName, Excel.XlFileFormat.xlWorkbookDefault, Type.Missing,
-                    Type.Missing, true, false, Excel.XlSaveAsAccessMode.xlNoChange, Excel.XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
+                    excelWorkbook.SaveAs(path + fileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookDefault, Type.Missing,
+                    Type.Missing, true, false, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Microsoft.Office.Interop.Excel.XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
 
                     excelWorkbook.Close();// change missValue to null
                     ExcelApp.Quit();
@@ -249,12 +248,12 @@ namespace ImgDataModel
         }
         public static class PowerPointWrapper
         {
-            public static PowerPoint.Application ppApp = new PowerPoint.Application();
-            public static PowerPoint.Presentations ppPresens ;
-            public static PowerPoint.Presentation objPres ;
-            public static PowerPoint.Slides objSlides ;
-            public static PowerPoint.Slide objSlide ;
-            public static PowerPoint.TextRange objTextRng;
+            public static Microsoft.Office.Interop.PowerPoint.Application ppApp = new Microsoft.Office.Interop.PowerPoint.Application();
+            public static Microsoft.Office.Interop.PowerPoint.Presentations ppPresens ;
+            public static Microsoft.Office.Interop.PowerPoint.Presentation objPres ;
+            public static Microsoft.Office.Interop.PowerPoint.Slides objSlides ;
+            public static Microsoft.Office.Interop.PowerPoint.Slide objSlide ;
+            public static Microsoft.Office.Interop.PowerPoint.TextRange objTextRng;
 
             public static bool result = false;
             public static string fileName = "VDI.pptx";
@@ -282,7 +281,7 @@ namespace ImgDataModel
                 try
                 {
                     //addind text to the slides
-                    objSlide = objSlides.Add(1, PowerPoint.PpSlideLayout.ppLayoutTitleOnly);
+                    objSlide = objSlides.Add(1, Microsoft.Office.Interop.PowerPoint.PpSlideLayout.ppLayoutTitleOnly);
                     objTextRng = objSlide.Shapes[1].TextFrame.TextRange;
 
                     objTextRng.Text = "VDI POWER POINT TEST";
@@ -301,7 +300,7 @@ namespace ImgDataModel
                 try
                 {
                     //saving powerpoint
-                    objPres.SaveAs(path + fileName, PowerPoint.PpSaveAsFileType.ppSaveAsDefault,
+                    objPres.SaveAs(path + fileName, Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault,
                         MsoTriState.msoTrue);
                     
                     ppApp.Quit();
@@ -347,7 +346,7 @@ namespace ImgDataModel
         }
         public static class AccessWrapper
         {
-            public static Access.Application AccessAPP = new Access.Application();
+            public static Microsoft.Office.Interop.Access.Application AccessAPP = new Microsoft.Office.Interop.Access.Application();
             public static bool result = false;
             public static string fileName = "VDI.accdb";
             public static void CreateAccess()
@@ -357,7 +356,7 @@ namespace ImgDataModel
                 {
                     //create access database
                     AccessAPP.NewCurrentDatabase(path+fileName,
-                                         Access.AcNewDatabaseFormat.acNewDatabaseFormatAccess2007,
+                                         Microsoft.Office.Interop.Access.AcNewDatabaseFormat.acNewDatabaseFormatAccess2007,
                                         Type.Missing);
                     releaseObject(AccessAPP);
                 }

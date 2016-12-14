@@ -15,3 +15,8 @@ C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\AbtImg\TestRunner\
 C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\AbtImg\TestRunner\bin\Debug\TestRunner.pdb
 C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\AbtImg\TestRunner\obj\Debug\TestRunner.exe
 C:\Users\frometaguerraj\Documents\Visual Studio 2015\Projects\AbtImg\TestRunner\obj\Debug\TestRunner.pdb
+C:\Users\acunad\Source\Repos\Abt-Image\TestRunner\bin\Debug\TestRunner.exe.config
+C:\Users\acunad\Source\Repos\Abt-Image\TestRunner\bin\Debug\TestRunner.exe
+C:\Users\acunad\Source\Repos\Abt-Image\TestRunner\bin\Debug\TestRunner.pdb
+C:\Users\acunad\Source\Repos\Abt-Image\TestRunner\obj\Debug\TestRunner.exe
+C:\Users\acunad\Source\Repos\Abt-Image\TestRunner\obj\Debug\TestRunner.pdb
