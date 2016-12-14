@@ -45,6 +45,7 @@
     <Reference Include="Microsoft.Lync.Model">
       <HintPath>..\packages\Microsoft.Lync\Microsoft.Lync.Model.dll</HintPath>
     </Reference>
+
     <Reference Include="Microsoft.Office.Interop.Access, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Access.15.0.4420.1017\lib\net20\Microsoft.Office.Interop.Access.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>

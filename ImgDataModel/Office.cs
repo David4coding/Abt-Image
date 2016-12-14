@@ -2,11 +2,10 @@
 using Microsoft.Office.Interop.Word;
 using System;
 using System.DirectoryServices;
-
 using Microsoft.Office.Interop.Access;
 using System.IO;
 using System.Reflection;
-using Microsoft.Office.Core;
+
 
 namespace ImgDataModel
 {
@@ -264,7 +263,7 @@ namespace ImgDataModel
                 try
                 {   //create powerpoint
                     ppPresens = ppApp.Presentations;
-                    objPres = ppPresens.Add(MsoTriState.msoTrue);
+                    objPres = ppPresens.Add();
                     objSlides = objPres.Slides;
 
                 }
@@ -300,8 +299,8 @@ namespace ImgDataModel
                 try
                 {
                     //saving powerpoint
-                    objPres.SaveAs(path + fileName, Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault,
-                        MsoTriState.msoTrue);
+                    objPres.SaveAs(path + fileName, Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault
+                        );
                     
                     ppApp.Quit();
 
